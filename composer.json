@@ -1,0 +1,28 @@
+{
+    "name": "quiqqer/template-strata",
+    "type": "quiqqer-template",
+    "description": "QUI Template",
+    "version": "dev-master",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Henning Leutz",
+            "email": "leutz@pcsg.de",
+            "homepage": "http://www.pcsg.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@pcsg.de"
+    },
+    "require": {
+        "quiqqer/quiqqer": "*@dev",
+        "quiqqer/bricks": "dev-dev"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "QUI": "src/"
+        }
+    }
+}
