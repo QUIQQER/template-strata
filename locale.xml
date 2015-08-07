@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locales>
+    <groups name="quiqqer/template-strata" datatype="php,js">
+        <locale name="copyright.text">
+            <de><![CDATA[&copy; Copyright [year] - PCSG]]></de>
+            <en><![CDATA[&copy; Copyright [year]]]></en>
+        </locale>
+        <locale name="admin.layout.noSidebar">
+            <de><![CDATA[Layout - Keine Sidebar]]></de>
+            <en><![CDATA[Layout - No sidebar]]></en>
+        </locale>
+        <locale name="area.footer.description">area.footer.title
+            <de><![CDATA[Footer Bereich]]></de>
+            <en><![CDATA[Footer Bereich]]></en>
+        </locale>
+    </groups>
+</locales>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+
+    <layouts>
+        <layout type="layout/noSidebar">
+            <title>
+                <locale group="quiqqer/template-strata" var="admin.layout.noSidebar" />
+            </title>
+            <description>
+                <locale group="quiqqer/template-strata" var="admin.layout.noSidebar.desc" />
+            </description>
+        </layout>
+    </layouts>
+
+</site>

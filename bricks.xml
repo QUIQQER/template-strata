@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <quiqqer>
+        <bricks>
+            <!-- defined areas in the template -->
+            <templateAreas>
+                <!-- global areas -->
+                <areas>
+                    <area name="footer" inheritance="1">
+                        <title>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.footer.title"
+                                    />
+                        </title>
+                        <description>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.footer.description"
+                                    />
+                        </description>
+                    </area>
+                </areas>
+
+                <!-- specific type areas -->
+                <layout layout="layout/noSidebar">
+                    <area name="noSidebar">
+                        <title>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.noSidebar.title"
+                                    />
+                        </title>
+                        <description>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.noSidebar.description"
+                                    />
+                        </description>
+                    </area>
+
+                    <area name="prefixContentBricks" inheritance="1">
+                        <title>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.sidebar.prefix.content.title"
+                                    />
+                        </title>
+                        <description>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.sidebar.prefix.content.description"
+                                    />
+                        </description>
+                    </area>
+
+                    <area name="suffixContentBricks" inheritance="1">
+                        <title>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.sidebar.suffix.content.title"
+                                    />
+                        </title>
+                        <description>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.sidebar.suffix.content.description"
+                                    />
+                        </description>
+                    </area>
+                </layout>
+
+            </templateAreas>
+        </bricks>
+    </quiqqer>

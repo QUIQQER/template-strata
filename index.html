@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,maximum-scale=1" />
+
+    {$Template->getHeader()}
+    {assign var=_tmp value=$Template->setAttribute('content-header', false)}
+
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic"
+        rel="stylesheet"
+        type="text/css"
+    />
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="{$URL_TPL_DIR}bin/style.css" rel="stylesheet" type="text/css" />
+
+
+
+</head>
+<body>
+    {control control="\QUI\Menu\Elastic"}
+
+    <!-- Header -->
+        <header id="header" style="background-image: url('{$URL_TPL_DIR}bin/images/overlay.png'), url('{$Site->getAttribute('image_emotion')}')">
+
+            {if $logo}
+                <a href="{url id=1}" class="image avatar logo">
+                    {image src=$logo id="logo" alt="logo" width=400}
+                </a>
+            {else}
+                <h1>
+                    Laden Sie Ihr Logo hoch
+                </h1>
+            {/if}
+            <h1>
+
+                {assign var=FirstPage value=$Project->firstChild()}
+                {$FirstPage->getAttribute('short')}
+
+            </h1>
+        </header>
+
+    <!-- Main -->
+    <div id="main">
+
+        <h1 id="page_name">
+            {$Site->getAttribute( 'title' )}
+        </h1>
+
+        <!-- content -->
+        <section id="one">
+            {$Template->getLayout()}
+        </section>
+
+
+
+
+
+
+
+    <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-twitter"></i>
+                        <span class="label">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-github"></i>
+                        <span class="label">Github</span></a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i  class="fa fa-dribbble"></i>
+                        <span class="label">Dribbble</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="label">Email</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="copyright">
+                <li>{locale group="quiqqer/template-strata" var="copyright.text" year=$smarty.now|date_format:"%Y"}</li>
+            </ul>
+        </footer>
+
+
+
+
+        <!-- Scripts -->
+
+        <script src="{$URL_TPL_DIR}bin/js/init.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <div class="header" style="background-image: url('{$Site->getAttribute('image_emotion')}')">
+        {if isset($logo)}
+        <a href="{url id=1}" class="page-header-logo">
+            {image src=$logo}
+        </a>
+        {else}
+        <h1>
+            {$Site->getAttribute( 'title' )}
+        </h1>
+        {/if}
+        sssssss
+    </div>
+
+    <div class="page_content">
+        <p>{$Site->getAttribute('content')}</p>
+        <p>{$Site->getAttribute('content')}</p>
+        <p>{$Site->getAttribute('content')}</p>
+        <p>{$Site->getAttribute('content')}</p>
+
+        dddddddddddddddddddddddd
+
+        <h1>
+            {$Site->getAttribute('title')}
+        </h1>
+        <i class="fa fa-folder-open fa-3x"></i>
+        {$Site->getAttribute('content')}
+
+        {assign var=children value=$Site->getChildren()}
+        {foreach $children as $Child}
+            <p><a href="{url site=$Child}">{$Child->getAttribute('title')}</a></p>
+        {/foreach}
+    </div>
+-->
+</body>
+</html>

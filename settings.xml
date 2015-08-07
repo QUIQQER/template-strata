@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiqqer>
+    <project>
+
+        <settings>
+            <config>
+                <section name="templateQUI.settings">
+                    <conf name="logo">
+                        <type><![CDATA[string]]></type>
+                    </conf>
+                </section>
+            </config>
+
+            <window>
+                <categories>
+                    <category name="templateQUI">
+                        <text>QUI Template Settings</text>
+                        <icon>URL_BIN_DIR/22x22/quiqqer.png</icon>
+
+                        <settings title="templateQUI.settings" name="templateQUI.settings">
+                            <title>
+                                QUI Template Einstellungen
+                            </title>
+                            <input conf="templateQUI.settings.logo" class="media-image">
+                                <text>Header-Logo</text>
+                            </input>
+                        </settings>
+
+                    </category>
+                </categories>
+
+            </window>
+        </settings>
+
+
+    </project>
+</quiqqer>
