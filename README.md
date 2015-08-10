@@ -1,13 +1,15 @@
 QUIQQER Template Strata
 ========
 
-Ein einfaches voll responsives Template für QUIQQER.
-Es ist nur ein Layout verfügbar (Header und Footer links, Pagecontent rechts).
+Ein einfaches, voll responsives Template für QUIQQER.
+
+Es ist nur ein Layout verfügbar (Header und Footer links, Seitencontent rechts).
 
 
 
 
 Packetname:
+----------
 
     quiqqer/template-strata
 
@@ -16,6 +18,7 @@ Features
 --------
 
 - Voll responsives
+- Headerbild und Logo sind änderbar im Adminbereich
 
 
 Installation

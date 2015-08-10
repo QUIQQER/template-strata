@@ -50,7 +50,7 @@
             {$Site->getAttribute( 'title' )}
         </h1>
 
-        <!-- content -->
+        <!-- Page content -->
         <section id="one">
             {$Template->getLayout()}
         </section>
@@ -58,6 +58,12 @@
     <!-- Footer -->
         <footer id="footer">
             <ul class="icons">
+                <li>
+                    <a href="#">
+                        <i  class="fa fa-facebook"></i>
+                        <span class="label">Facebook</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-twitter"></i>
@@ -71,12 +77,6 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i  class="fa fa-dribbble"></i>
-                        <span class="label">Dribbble</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
                         <i class="fa fa-envelope-o"></i>
                         <span class="label">Email</span>
                     </a>
@@ -87,37 +87,9 @@
             </ul>
         </footer>
 
-
-
-
         <!-- Scripts -->
 
         <script src="{$URL_TPL_DIR}bin/js/init.js"></script>
 
-
-
-
-
-
-
-
-<!--
-
-
-    <div class="page_content">
-
-
-        <h1>
-            {$Site->getAttribute('title')}
-        </h1>
-        <i class="fa fa-folder-open fa-3x"></i>
-        {$Site->getAttribute('content')}
-
-        {assign var=children value=$Site->getChildren()}
-        {foreach $children as $Child}
-            <p><a href="{url site=$Child}">{$Child->getAttribute('title')}</a></p>
-        {/foreach}
-    </div>
--->
 </body>
 </html>
