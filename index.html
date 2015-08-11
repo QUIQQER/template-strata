@@ -24,7 +24,8 @@
     {control control="\QUI\Menu\Elastic"}
 
     <!-- Header -->
-        <header id="header" style="background-image: url('{$URL_TPL_DIR}bin/images/overlay.png'), url('{$Site->getAttribute('image_emotion')}')">
+        {image src=$Site->getAttribute('image_emotion') assign=image_emotion rewrited=true onlysrc=true}
+        <header id="header" style="background-image: url('{$URL_TPL_DIR}bin/images/overlay.png'), url('{$image_emotion}')">
 
             {if $logo}
                 <a href="{url id=1}" class="image avatar logo">
@@ -55,37 +56,45 @@
             {$Template->getLayout()}
         </section>
 
+
+    </div>
     <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li>
-                    <a href="#">
-                        <i  class="fa fa-facebook"></i>
-                        <span class="label">Facebook</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-twitter"></i>
-                        <span class="label">Twitter</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-github"></i>
-                        <span class="label">Github</span></a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-envelope-o"></i>
-                        <span class="label">Email</span>
-                    </a>
-                </li>
-            </ul>
-            <ul class="copyright">
-                <li>{locale group="quiqqer/template-strata" var="copyright.text" year=$smarty.now|date_format:"%Y"}</li>
-            </ul>
-        </footer>
+    <footer id="footer">
+        {assign var=bricks value=$BricksManager->getBricksByArea('footer', $Site)}
+        {foreach from=$bricks item=Brick}
+        <section style="display: block;">
+            {$Brick->create()}
+        </section>
+        {/foreach}
+        <ul class="icons">
+            <li>
+                <a href="#">
+                    <i  class="fa fa-facebook"></i>
+                    <span class="label">Facebook</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-twitter"></i>
+                    <span class="label">Twitter</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-github"></i>
+                    <span class="label">Github</span></a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="label">Email</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="copyright">
+            <li>{locale group="quiqqer/template-strata" var="copyright.text" year=$smarty.now|date_format:"%Y"}</li>
+        </ul>
+    </footer>
 
         <!-- Scripts -->
 

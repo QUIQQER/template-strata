@@ -22,9 +22,10 @@ if (QUI\Projects\Media\Utils::isMediaUrl($configLogo)) {
  */
 
 $Engine->assign(array(
-    'logo'          => $logo
+    'logo'          => $logo,
+    'ownSideType'   =>
+        strpos($Site->getAttribute('type'), 'quiqqer/template-strata:') !== false
+            ? 1 : 0,
+    'quiTplType'    => $Project->getConfig('templateQUI.settings.standardType'),
+    'BricksManager' => \QUI\Bricks\Manager::init()
 ));
-
-
-
-// echo QUI::getLocale()->get('quiqqer/template-strata', 'copyright.text');

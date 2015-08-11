@@ -75,7 +75,7 @@
     body, input, select, textarea {
         color: #a2a2a2;
         font-family: "Source Sans Pro", Helvetica, sans-serif;
-        font-size: 16pt;
+        font-size: 14pt;
         font-weight: 400;
         line-height: 1.75em;
     }
@@ -383,10 +383,33 @@
     #footer {
         bottom: 0;
         left: 0;
-        padding: 0 4em 6em 0;
+        padding: 0 3em 3em;
         position: fixed;
-        text-align: right;
-        width: 35%;
+        text-align: left;
+        width: 65%;
+        margin-left: 35%;
+        bottom: 0;
+        position: relative;
+        background: #000;
+        background-attachment: fixed;
+        background-color: #1f1815;
+        background-image: url("images/overlay.png");
+        background-position: top left;
+        background-repeat: repeat;
+        background-size: auto;
+        padding: 2em 15%;
+    }
+
+    #footer > section > div {
+        margin: 1em 0;
+        display: block;
+        float: none;
+        clear: both;
+    }
+
+    #footer ul {
+        text-align: center;
+        padding: 3em 0;
     }
 
     #footer ul.icons li a {
@@ -813,24 +836,27 @@
     #footer {
         background-attachment: scroll;
         background-color: #1f1815;
-        background-image: url("images/overlay.png"), url("../../images/bg.jpg");
-        background-position: top left,						bottom center;
-        background-repeat: repeat,							no-repeat;
-        background-size: auto,							cover;
+        background-image: url("images/overlay.png");
+        background-position: top left;
+        background-repeat: repeat;
+        background-size: auto;
         bottom: auto;
         left: auto;
-        padding: 4em 4em 6em 4em;
+        padding: 2em 4em 4em 4em;
         position: relative;
-        text-align: center;
+        text-align: left;
         width: 100%;
     }
 
     #footer .icons {
-        margin: 0 0 1em 0;
+        margin: 0em 0 1em 0;
+        padding: 1em 0 0 0;
+        text-align: center;
     }
 
     #footer .copyright {
         margin: 0 0 1em 0;
+        text-align: center;
     }
 
     #footer .copyright li {
@@ -890,10 +916,6 @@
     }
 
     /* Header */
-
-    #header {
-        padding: 2.25em 1.5em;
-    }
 
     #header h1 {
         font-size: 1.35em;
@@ -969,6 +991,7 @@
 
     /* Header */
 
+    #header {
     #header {
         padding: 4.5em 1.5em;
     }
