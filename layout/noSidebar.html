@@ -1,5 +1,8 @@
 <div class="grid-container grid-parent page" id="page">
 
+    {assign var=prefixContentBricks value=$BricksManager->getBricksByArea('prefixContentBricks', $Site)}
+    {assign var=suffixContentBricks value=$BricksManager->getBricksByArea('suffixContentBricks', $Site)}
+
     {if !empty( $prefixContentBricks )}
     {foreach from=$prefixContentBricks item=Brick}
     <div class="page-box page-box-prefix">

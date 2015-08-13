@@ -17,6 +17,36 @@
                                     />
                         </description>
                     </area>
+
+                    <area name="prefixContentBricks" inheritance="1">
+                        <title>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.sidebar.prefix.content.title"
+                                    />
+                        </title>
+                        <description>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.sidebar.prefix.content.description"
+                                    />
+                        </description>
+                    </area>
+                    <area name="suffixContentBricks" inheritance="1">
+                        <title>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.sidebar.suffix.content.title"
+                                    />
+                        </title>
+                        <description>
+                            <locale group="quiqqer/template-strata"
+                                    var="area.sidebar.suffix.content.description"
+                                    />
+                        </description>
+                    </area>
+
+
+
+
+
                 </areas>
 
                 <!-- specific type areas -->
@@ -34,31 +64,9 @@
                         </description>
                     </area>
 
-                    <area name="prefixContentBricks" inheritance="1">
-                        <title>
-                            <locale group="quiqqer/template-strata"
-                                    var="area.sidebar.prefix.content.title"
-                                    />
-                        </title>
-                        <description>
-                            <locale group="quiqqer/template-strata"
-                                    var="area.sidebar.prefix.content.description"
-                                    />
-                        </description>
-                    </area>
 
-                    <area name="suffixContentBricks" inheritance="1">
-                        <title>
-                            <locale group="quiqqer/template-strata"
-                                    var="area.sidebar.suffix.content.title"
-                                    />
-                        </title>
-                        <description>
-                            <locale group="quiqqer/template-strata"
-                                    var="area.sidebar.suffix.content.description"
-                                    />
-                        </description>
-                    </area>
+
+
                 </layout>
 
             </templateAreas>

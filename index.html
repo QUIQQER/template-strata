@@ -26,7 +26,7 @@
     <!-- Header -->
         {image src=$Site->getAttribute('image_emotion') assign=image_emotion rewrited=true onlysrc=true}
         <header id="header" style="background-image: url('{$URL_TPL_DIR}bin/images/overlay.png'), url('{$image_emotion}')">
-
+            <div id="header_div_test">
             {if $logo}
                 <a href="{url id=1}" class="image avatar logo">
                     {image src=$logo id="logo" alt="logo" width=400}
@@ -41,6 +41,46 @@
                 {assign var=FirstPage value=$Project->firstChild()}
                 {$FirstPage->getAttribute('short')}
             </h1>
+            </div>
+            <!-- Footer -->
+            <div id="footer_div_test">
+            <footer id="footer">
+                {assign var=bricks value=$BricksManager->getBricksByArea('footer', $Site)}
+                {foreach from=$bricks item=Brick}
+                <section style="display: block;">
+                    {$Brick->create()}
+                </section>
+                {/foreach}
+                <ul class="icons">
+                    <li>
+                        <a href="#">
+                            <i  class="fa fa-facebook"></i>
+                            <span class="label">Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                            <span class="label">Twitter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-github"></i>
+                            <span class="label">Github</span></a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label">Email</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="copyright">
+                    <li>{locale group="quiqqer/template-strata" var="copyright.text" year=$smarty.now|date_format:"%Y"}</li>
+                </ul>
+            </footer>
+            </div>
 
         </header>
 
@@ -58,43 +98,7 @@
 
 
     </div>
-    <!-- Footer -->
-    <footer id="footer">
-        {assign var=bricks value=$BricksManager->getBricksByArea('footer', $Site)}
-        {foreach from=$bricks item=Brick}
-        <section style="display: block;">
-            {$Brick->create()}
-        </section>
-        {/foreach}
-        <ul class="icons">
-            <li>
-                <a href="#">
-                    <i  class="fa fa-facebook"></i>
-                    <span class="label">Facebook</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-twitter"></i>
-                    <span class="label">Twitter</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-github"></i>
-                    <span class="label">Github</span></a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="label">Email</span>
-                </a>
-            </li>
-        </ul>
-        <ul class="copyright">
-            <li>{locale group="quiqqer/template-strata" var="copyright.text" year=$smarty.now|date_format:"%Y"}</li>
-        </ul>
-    </footer>
+
 
         <!-- Scripts -->
 
