@@ -117,7 +117,7 @@
         text-decoration: none;
     }
 
-    #header > a {
+    #header > div > div > a {
         border: none;
     }
 
@@ -339,20 +339,24 @@
 
     #header {
         background-color: #1f1815;
-        background-attachment: scroll, fixed;
+        background-attachment: fixed, fixed;
         background-position: top left, top left;
         background-repeat: repeat, no-repeat;
         background-size: auto, auto 100%;
         color: rgba(255, 255, 255, 0.5);
-        height: 100%;
         left: 0;
+        height: 100%;
         padding: 0 4em;
         /*padding: 8em 4em 0 4em;*/
         position: fixed;
         text-align: right;
         top: 0;
         width: 35%;
-        overflow: auto;
+        overflow: hidden;
+    }
+
+    #header_wrapper {
+        position: relative;
     }
 
     #header strong, #header b {
@@ -370,30 +374,28 @@
         margin: 1.3em 0 0 0;
     }
 
-    #header .image.avatar {
-        margin: 0 0 1em 0;
-        width: 6.25em;
-    }
-
     #logo {
         max-width: 100%;
     }
 
     #header_div_test {
+        clear: both;
+        display: block;
+        float: none;
         height: 40%;
-        width: 100%;
+        padding: 20% 0 0;
         position: relative;
-        padding: 8em 0 0;
+        width: 100%;
     }
 
 /* Footer */
 
     #footer_div_test {
         min-height: 60%;
-        background: ;
         position: relative;
         vertical-align: bottom;
         overflow: auto;
+        background: rgba(0,0,0,0);
     }
 
     #footer {
@@ -407,18 +409,11 @@
         left: 0;
         margin: 1em 0;
         padding: 0 3em 3em;
-        position: absolute;
+        position: relative;
         width: 100%;
         text-align: left;
+        overflow: visible;
 
-
-        /* Footer im Header
-
-
-        position: fixed;
-        bottom: 0;
-
-        */
     }
 
     #footer > section > div {
@@ -784,8 +779,12 @@
     /* Header */
 
     #header {
-        padding: 6em 3em 3em 3em;
+        padding: 0em 2em 3em 2em;
         width: 30%;
+    }
+    
+    #header_wrapper {
+        padding-top: 2em;
     }
 
     #header h1 {
@@ -799,18 +798,10 @@
     /* Footer */
 
     #footer {
-        background-attachment: fixed;
-        background-color: #1f1815;
-        background-image: url("images/overlay.png");
-        background-position: top left;
-        background-repeat: repeat;
-        background-size: auto;
         bottom: 0;
         left: 0;
-        margin-left: 30%;
-        padding: 2em 15%;
+        padding: 2em 0em;
         position: relative;
-        width: 70%;
         text-align: left;
     }
 
@@ -861,6 +852,9 @@
         text-align: center;
         top: auto;
         width: 100%;
+    }
+    #header_wrapper {
+        padding-top: 0;
     }
 
     #header h1 {
