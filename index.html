@@ -48,7 +48,7 @@
 
                 <!-- Footer -->
                 <div id="footer_div_test">
-                    <footer id="footer">
+                    <div id="footer">
                         {assign var=bricks value=$BricksManager->getBricksByArea('footer', $Site)}
                         {foreach from=$bricks item=Brick}
                         <section style="display: block;">
@@ -59,7 +59,7 @@
                         <ul class="copyright">
                             <li>{locale group="quiqqer/template-strata" var="copyright.text" year=$smarty.now|date_format:"%Y"}</li>
                         </ul>
-                    </footer>
+                    </div>
                 </div>
             </div>
         </header>
@@ -78,6 +78,18 @@
 
 
     </div>
+    <footer id="footer_small">
+        {assign var=bricks value=$BricksManager->getBricksByArea('footer', $Site)}
+        {foreach from=$bricks item=Brick}
+        <section style="display: block;">
+            {$Brick->create()}
+        </section>
+        {/foreach}
+
+        <ul class="copyright">
+            <li>{locale group="quiqqer/template-strata" var="copyright.text" year=$smarty.now|date_format:"%Y"}</li>
+        </ul>
+    </footer>
 
 
         <!-- Scripts -->

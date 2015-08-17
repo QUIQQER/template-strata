@@ -355,6 +355,13 @@
         overflow: hidden;
     }
 
+    @media screen and (max-height: 440px) {
+        #header {
+            -webkit-background-size: auto, 100% auto;
+            background-size: auto, 100% auto;
+        }
+    }
+
     #header_wrapper {
         position: relative;
     }
@@ -371,7 +378,7 @@
         color: rgba(255, 255, 255, 0.7);
         font-size: 1.35em;
         line-height: 1.75em;
-        margin: 1.3em 0 0 0;
+        margin: 1.3em 0 0 0;;
     }
 
     #logo {
@@ -383,18 +390,22 @@
         display: block;
         float: none;
         height: 40%;
-        padding: 20% 0 0;
+        padding: 35% 0 0;
         position: relative;
         width: 100%;
     }
 
 /* Footer */
 
+    #footer_small {
+        display: none;
+    }
+
     #footer_div_test {
         min-height: 60%;
         position: relative;
         vertical-align: bottom;
-        overflow: auto;
+        overflow: visible;
         background: rgba(0,0,0,0);
     }
 
@@ -412,15 +423,15 @@
         position: relative;
         width: 100%;
         text-align: left;
-        overflow: visible;
-
     }
 
-    #footer > section > div {
+    #footer > section > div,
+    #footer_small > section > div{
         margin: 1em 0;
     }
 
-    #footer ul.icons {
+    #footer ul.icons,
+    #footer_small ul.icons {
         clear: both;
         font-size: 1.4em;
         margin: 0;
@@ -428,7 +439,8 @@
         text-align: center;
     }
 
-    #footer ul.icons li a {
+    #footer ul.icons li a,
+    #footer_small ul.icons li a{
         border-bottom: none;
     }
 /*
@@ -437,15 +449,18 @@
         font-size: 1.4em;
     }
 */
-    #footer .icons .label {
+    #footer .icons .label,
+    #footer_small .icons .label {
         display: none;
     }
 
-    #footer .icons a {
+    #footer .icons a,
+    #footer_small .icons a {
         color: rgba(255, 255, 255, 0.5);
     }
 
-    #footer .copyright {
+    #footer .copyright,
+    #footer_small .copyright {
         color: rgba(255, 255, 255, 0.5);
         font-size: 0.8em;
         list-style: none;
@@ -454,7 +469,8 @@
         text-align: center;
     }
 
-    #footer .copyright li {
+    #footer .copyright li,
+    #footer_small .copyright li {
         border-left: solid 1px rgba(255, 255, 255, 0.25);
         display: inline-block;
         line-height: 1em;
@@ -462,13 +478,15 @@
         padding-left: 0.75em;
     }
 
-    #footer .copyright li:first-child {
+    #footer .copyright li:first-child,
+    #footer_small .copyright li:first-child {
         border-left: 0;
         margin-left: 0;
         padding-left: 0;
     }
 
-    #footer .copyright li a {
+    #footer .copyright li a,
+    #footer_small .copyright li a {
         color: inherit;
     }
 
@@ -480,7 +498,7 @@
         max-width: 54em;
         padding: 0em 4em 1em 4em;
         width: calc(100% - 35%);
-        margin-bottom: 2em;
+        margin-bottom: 0em;
     }
 
     #main > section {
@@ -494,10 +512,15 @@
     }
 
     #main > h1 {
-        border-bottom: solid 2px #efefef;
-        margin: 1em 0 0 0;
-        padding: 0em 0 1em 0;
+        border-bottom: solid 2px #efefef !important;
+        padding: 1em 0 1em 0;
         font-size: 2em;
+    }
+
+    #main:after {
+        content: '';
+        clear: both;
+        display: block;
     }
 
     #one > div > div{
@@ -782,10 +805,6 @@
         padding: 0em 2em 3em 2em;
         width: 30%;
     }
-    
-    #header_wrapper {
-        padding-top: 2em;
-    }
 
     #header h1 {
         font-size: 1.25em;
@@ -853,10 +872,10 @@
         top: auto;
         width: 100%;
     }
-    #header_wrapper {
-        padding-top: 0;
+    
+    #header_div_test {
+        padding: 5% 0 10%;
     }
-
     #header h1 {
         font-size: 1.75em;
     }
@@ -868,6 +887,10 @@
     /* Footer */
 
     #footer {
+        display: none;
+    }
+    
+    #footer_small {        
         background-attachment: scroll;
         background-color: #1f1815;
         background-image: url("images/overlay.png");
@@ -875,6 +898,7 @@
         background-repeat: repeat;
         background-size: auto;
         bottom: auto;
+        display: block;
         left: auto;
         padding: 2em 20% 4em;
         position: relative;
@@ -885,18 +909,18 @@
 
 
 
-    #footer .icons {
+    #footer_small .icons {
         margin: 0em 0 1em 0;
         padding: 1em 0 0 0;
         text-align: center;
     }
 
-    #footer .copyright {
+    #footer_small .copyright {
         margin: 0 0 1em 0;
         text-align: center;
     }
 
-    #footer .copyright li {
+    #footer_small .copyright li {
         border-left-width: 1px;
         display: inline-block;
         line-height: 1em;
@@ -1038,7 +1062,7 @@
 
     /* Footer */
 
-    #footer .copyright li {
+    #footer_small .copyright li {
         border-left-width: 0;
         display: block;
         line-height: 2.25em;
