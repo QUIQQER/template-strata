@@ -8,7 +8,6 @@
     {$Template->getHeader()}
     {assign var=_tmp value=$Template->setAttribute('content-header', false)}
 
-
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic"
         rel="stylesheet"
         type="text/css"
@@ -17,19 +16,18 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="{$URL_TPL_DIR}bin/style.css" rel="stylesheet" type="text/css" />
 
-
-
 </head>
 <body>
+    <!-- Menu -->
     {control control="\QUI\Menu\Elastic"}
-
+    
     <!-- Header -->
         {image src=$Site->getAttribute('image_emotion') assign=image_emotion rewrited=true onlysrc=true}
         <header id="header" style="background-image: url('{$URL_TPL_DIR}bin/images/overlay.png'), url('{$image_emotion}')">
             <div id="header_wrapper">
 
-                <!-- Headerlogo -->
-                <div id="header_div_test">
+                <!-- Header logo -->
+                <div id="header_div">
                     {if $logo}
                         <a href="{url id=1}" class="image avatar logo">
                             {image src=$logo id="logo" alt="logo" width=400}
@@ -47,7 +45,7 @@
                 </div>
 
                 <!-- Footer -->
-                <div id="footer_div_test">
+                <div id="footer_div">
                     <div id="footer">
                         {assign var=bricks value=$BricksManager->getBricksByArea('footer', $Site)}
                         {foreach from=$bricks item=Brick}
@@ -76,8 +74,9 @@
             {$Template->getLayout()}
         </section>
 
-
     </div>
+
+    <!-- Footer (for small devices) -->
     <footer id="footer_small">
         {assign var=bricks value=$BricksManager->getBricksByArea('footer', $Site)}
         {foreach from=$bricks item=Brick}
@@ -91,10 +90,8 @@
         </ul>
     </footer>
 
-
-        <!-- Scripts -->
-
-        <script src="{$URL_TPL_DIR}bin/js/init.js"></script>
+    <!-- Scripts -->
+    <script src="{$URL_TPL_DIR}bin/js/init.js"></script>
 
 </body>
 </html>

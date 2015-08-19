@@ -6,7 +6,7 @@
             <en><![CDATA[&copy; Copyright [year]]]></en>
         </locale>
         <locale name="admin.layout.noSidebar">
-            <de><![CDATA[Layout - Keine Sidebar]]></de>
+            <de><![CDATA[Layout - Kein Sidebar]]></de>
             <en><![CDATA[Layout - No sidebar]]></en>
         </locale>
         <locale name="area.footer.title">

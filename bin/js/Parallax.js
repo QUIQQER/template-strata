@@ -11,10 +11,9 @@ define('template-strata/Parallax', [
 
     'qui/QUI',
     'qui/classes/DOM',
-    'qui/utils/Functions',
-    'qui/utils/Math'
+    'qui/utils/Functions'
 
-], function(QUI, QDOM, QUIFunctionUtils, QUIUtilsMath)
+], function(QUI, QDOM, QUIFunctionUtils)
 {
     "use strict";
 
@@ -34,6 +33,10 @@ define('template-strata/Parallax', [
             this.$pos = 0;
             this.$winSize = false;
             this.$wrapperSize = false;
+
+            this.$__resize = false;
+
+
         },
 
         /**
@@ -41,28 +44,48 @@ define('template-strata/Parallax', [
          */
         load : function()
         {
+            var self = this;
+
             this.$Header = document.id('header');
             this.$Main   = document.id('main');
             this.$Wrapper = document.id('header_wrapper');
 
             this.$FX = moofx(this.$Wrapper);
 
-            this.$recalc();
+            new Fx.Scroll(window,{
+                onComplete : function() {
+                    self.$recalc();
+                }
+            }).toTop();
 
 
-            window.addEvent('scroll', QUIFunctionUtils.debounce(this.$onScroll, 17));
-            window.addEvent('resize', QUIFunctionUtils.debounce(this.$recalc, 10));
+            window.addEvent(
+                'scroll',
+                QUIFunctionUtils.debounce(this.$onScroll, 20)
+            );
+
+            window.addEvent('resize', QUIFunctionUtils.debounce(function() {
+                new Fx.Scroll(window,{
+                    duration : 20,
+                    onComplete : function() {
+                        self.$__resize = false;
+                        self.$recalc();
+                    }
+                }).toTop();
+
+                (function() {
+                    self.$__resize = false;
+                    self.$recalc();
+                }).delay(200);
+
+            }, 200));
+
+            window.addEvent('resize', function() {
+                self.$__resize = true;
+            });
 
 
-            console.log('Contenthöhe (Main): ' + this.$Main.getSize().y + 'px');
-            console.log('Nicht sichtbarer Teil des Contents (Main) ' + (this.$Main.getSize().y - window.getSize().y) +'px');
-
-            console.log('Footerhöhe (Wrapper): ' + this.$Wrapper.getSize().y + 'px');
-            console.log('Nicht sichtbarer Teil des Footers (Wrapper) ' + (this.$Wrapper.getSize().y - window.getSize().y) +'px');
-
-            console.log('Fensterhöhe (Window): ' + window.getSize().y + 'px');
         },
-
 
 
         /**
@@ -71,71 +94,49 @@ define('template-strata/Parallax', [
         $recalc : function()
         {
             this.$pos = window.getScroll().y;
-            this.$MainSize = this.$Main.getSize().y;
             this.$winSize = window.getSize().y;
             this.$wrapperSize = this.$Wrapper.getSize();
+            this.$MainSize = this.$Main.getSize().y;
 
+            // New position after browser sizing
+            this.$newPosSizing = ( (window.getScroll().y / this.$MainSize) * (this.$Wrapper.getSize().y) ) * (-1);
+            this.$Wrapper.setStyle('top', this.$newPosSizing);
 
-
+            this.$onScroll();
         },
+
         /**
          * on scroll event
          */
         $onScroll : function()
         {
+            if(window.getSize().x < 960) {
+                return;
+            }
+
+            if (this.$__resize) {
+                return;
+            }
+
             var winPos = window.getScroll().y,
                 diff   = winPos - this.$pos;
-            console.log('-----------------------')
-
-
-            console.log('Differenz in px ' + diff);
-
-            console.log('Fenster position ' + winPos );
-
-
-            this.$FooterPos = this.$Wrapper.getStyle('top');
-            console.log('Footer position ' + this.$FooterPos);
-
-            //var percent = QUIUtilsMath.percent(diff, this.$winSize);
-            //console.log(percent + '%');
-            // Neue Berechnung
-            //console.log('um wieviel px soll Footer verschoben werden: ' + ((this.$Wrapper.getSize().y * diff) / this.$Main.getSize().y));
-            console.log('um wieviel px soll Footer verschoben werden (NEU): ' + ((this.$Wrapper.getSize().y * diff) / (this.$MainSize - window.getSize().y)));
 
             this.$pos = winPos;
 
             if (this.$wrapperSize.y > this.$winSize){
 
-                //var scrollTo = (percent / 100) * this.$wrapperSize.y * (-1);
-
-                // Neue Berechnung
-                scrollTo = (((this.$Wrapper.getSize().y - window.getSize().y) * diff) / (this.$MainSize - window.getSize().y) * (-1));
+                var scrollTo = (
+                    ((this.$wrapperSize.y - this.$winSize) * diff) /
+                    (this.$MainSize - this.$winSize) * (-1)
+                );
 
                 this.$FX.animate({
                     top: this.$Wrapper.getStyle('top').toInt() + scrollTo
                 });
 
-            } else
-            {
-                var scrollToFix;
-
-                if ( diff > 0 ) {
-
-                    scrollToFix = (diff - (diff - 4)) * (-1);
-
-                    this.$FX.animate({
-                        top: this.$Wrapper.getStyle('top').toInt() + scrollToFix
-                    });
-
-                } else
-                {
-                    scrollToFix = (diff - (diff - 4));
-
-                    this.$FX.animate({
-                        top: this.$Wrapper.getStyle('top').toInt() + scrollToFix
-                    });
-                }
+                return;
             }
+
         }
     });
 });

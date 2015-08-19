@@ -19,6 +19,11 @@ window.addEvent('domready', function()
             console.error( 'LineNo: '+ linenumber );
         });
     });
+});
+
+window.addEvent('load', function()
+{
+    "use strict";
 
     require(['template-strata/Parallax'], function(Parallax) {
         new Parallax().load();
