@@ -19,6 +19,8 @@ Features
 
 - Voll responsives
 - Headerbild und Logo sind änderbar im Adminbereich
+- Footerbereich wird beim Scrollen des Contentbereiches mitgescrollt
+- Wenn der Content kleiner als Footer ist, wird der vertikale Scrollbar im Footer angezeigt
 
 
 Installation

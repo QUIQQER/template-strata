@@ -49,7 +49,9 @@ define('template-strata/Parallax', [
             this.$Header = document.id('header');
             this.$Main   = document.id('main');
             this.$Wrapper = document.id('header_wrapper');
+            this.$MainSize = this.$Main.getSize().y;
 
+            this.$wrapperSize = this.$Wrapper.getSize();
             this.$FX = moofx(this.$Wrapper);
 
             new Fx.Scroll(window,{
@@ -83,8 +85,6 @@ define('template-strata/Parallax', [
             window.addEvent('resize', function() {
                 self.$__resize = true;
             });
-
-
         },
 
 
@@ -95,14 +95,37 @@ define('template-strata/Parallax', [
         {
             this.$pos = window.getScroll().y;
             this.$winSize = window.getSize().y;
-            this.$wrapperSize = this.$Wrapper.getSize();
-            this.$MainSize = this.$Main.getSize().y;
 
             // New position after browser sizing
             this.$newPosSizing = ( (window.getScroll().y / this.$MainSize) * (this.$Wrapper.getSize().y) ) * (-1);
             this.$Wrapper.setStyle('top', this.$newPosSizing);
 
             this.$onScroll();
+
+            /**
+             * if content higher then footer: display the vertical scroll bar
+             */
+            if (window.getSize().x < 960 ) // for mobile devices never display the scroll bar
+            {
+                this.$Header.setStyle('overflow', 'hidden');
+            }
+            else {
+
+                if (this.$wrapperSize.y > window.getSize().y)
+                {
+                    if (this.$Header.getSize().y > this.$MainSize)
+                    {
+                        this.$Header.setStyle('overflow-y', 'scroll');
+                    }
+                    else
+                    {
+                        this.$Header.setStyle('overflow', 'hidden');
+                    }
+                }
+                else { // if the footer smaller then content, hide the scroll bar
+                    this.$Header.setStyle('overflow', 'hidden');
+                }
+            }
         },
 
         /**
@@ -123,8 +146,8 @@ define('template-strata/Parallax', [
 
             this.$pos = winPos;
 
-            if (this.$wrapperSize.y > this.$winSize){
-
+            if (this.$wrapperSize.y > this.$winSize)
+            {
                 var scrollTo = (
                     ((this.$wrapperSize.y - this.$winSize) * diff) /
                     (this.$MainSize - this.$winSize) * (-1)

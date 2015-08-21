@@ -55,6 +55,20 @@
 		box-sizing: border-box;
 	}
 
+/* -webkit scroll bar */
+
+header::-webkit-scrollbar {
+    background: rgba(255,255,255,0.07);
+}
+
+header:hover::-webkit-scrollbar {
+    background: rgba(255,255,255,0.15);
+}
+
+header::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+}
+
 /* Basic */
 
     body {
