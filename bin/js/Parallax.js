@@ -2,10 +2,11 @@
  * Parallax function
  *
  * @module template-strata/Parallax
- * @author www.pcsg.de
+ * @author www.pcsg.de (Michael Danielczok)
  *
  * @require qui/QUI
  * @require qui/classes/DOM
+ * @require qui/utils/Functions
  */
 define('template-strata/Parallax', [
 
