@@ -104,9 +104,9 @@ define('template-strata/Parallax', [
             this.$onScroll();
 
             /**
-             * if content higher then footer: display the vertical scroll bar
+             * if content higher than footer: display the vertical scroll bar
              */
-            if (window.getSize().x < 960 ) // for mobile devices never display the scroll bar
+            if (window.getSize().x < 960 ) // for mobile devices never display the scrollbar
             {
                 this.$Header.setStyle('overflow', 'hidden');
             }
@@ -123,7 +123,7 @@ define('template-strata/Parallax', [
                         this.$Header.setStyle('overflow', 'hidden');
                     }
                 }
-                else { // if the footer smaller then content, hide the scroll bar
+                else { // if the footer smaller than content, hide the scrollbar
                     this.$Header.setStyle('overflow', 'hidden');
                 }
             }
