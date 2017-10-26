@@ -14,18 +14,18 @@ define('template-strata/Parallax', [
     'qui/classes/DOM',
     'qui/utils/Functions'
 
-], function(QUI, QDOM, QUIFunctionUtils)
+], function (QUI, QDOM, QUIFunctionUtils)
 {
     "use strict";
 
     return new Class({
 
-        Extends : QDOM,
-        Type : 'template-strata/Parallax',
+        Extends: QDOM,
+        Type   : 'template-strata/Parallax',
 
-        Binds : ['$onScroll', '$recalc'],
+        Binds: ['$onScroll', '$recalc'],
 
-        initialize : function(options)
+        initialize: function (options)
         {
             this.parent(options);
 
@@ -43,20 +43,21 @@ define('template-strata/Parallax', [
         /**
          *
          */
-        load : function()
+        load: function ()
         {
             var self = this;
 
             this.$Header = document.id('header');
-            this.$Main   = document.id('main');
+            this.$Main = document.id('main');
             this.$Wrapper = document.id('header_wrapper');
             this.$MainSize = this.$Main.getSize().y;
 
             this.$wrapperSize = this.$Wrapper.getSize();
             this.$FX = moofx(this.$Wrapper);
 
-            new Fx.Scroll(window,{
-                onComplete : function() {
+            new Fx.Scroll(window, {
+                onComplete: function ()
+                {
                     self.$recalc();
                 }
             }).toTop();
@@ -67,23 +68,27 @@ define('template-strata/Parallax', [
                 QUIFunctionUtils.debounce(this.$onScroll, 20)
             );
 
-            window.addEvent('resize', QUIFunctionUtils.debounce(function() {
-                new Fx.Scroll(window,{
-                    duration : 20,
-                    onComplete : function() {
+            window.addEvent('resize', QUIFunctionUtils.debounce(function ()
+            {
+                new Fx.Scroll(window, {
+                    duration  : 20,
+                    onComplete: function ()
+                    {
                         self.$__resize = false;
                         self.$recalc();
                     }
                 }).toTop();
 
-                (function() {
+                (function ()
+                {
                     self.$__resize = false;
                     self.$recalc();
                 }).delay(200);
 
             }, 200));
 
-            window.addEvent('resize', function() {
+            window.addEvent('resize', function ()
+            {
                 self.$__resize = true;
             });
         },
@@ -92,13 +97,13 @@ define('template-strata/Parallax', [
         /**
          * recalc of the main size data
          */
-        $recalc : function()
+        $recalc: function ()
         {
             this.$pos = window.getScroll().y;
             this.$winSize = window.getSize().y;
 
             // New position after browser sizing
-            this.$newPosSizing = ( (window.getScroll().y / this.$MainSize) * (this.$Wrapper.getSize().y) ) * (-1);
+            this.$newPosSizing = ((window.getScroll().y / this.$MainSize) * (this.$Wrapper.getSize().y)) * (-1);
             this.$Wrapper.setStyle('top', this.$newPosSizing);
 
             this.$onScroll();
@@ -106,24 +111,18 @@ define('template-strata/Parallax', [
             /**
              * if content higher than footer: display the vertical scroll bar
              */
-            if (window.getSize().x < 960 ) // for mobile devices never display the scrollbar
+            if (window.getSize().x < 960) // for mobile devices never display the scrollbar
             {
                 this.$Header.setStyle('overflow', 'hidden');
-            }
-            else {
+            } else {
 
-                if (this.$wrapperSize.y > window.getSize().y)
-                {
-                    if (this.$Header.getSize().y > this.$MainSize)
-                    {
+                if (this.$wrapperSize.y > window.getSize().y) {
+                    if (this.$Header.getSize().y > this.$MainSize) {
                         this.$Header.setStyle('overflow-y', 'scroll');
-                    }
-                    else
-                    {
+                    } else {
                         this.$Header.setStyle('overflow', 'hidden');
                     }
-                }
-                else { // if the footer smaller than content, hide the scrollbar
+                } else { // if the footer smaller than content, hide the scrollbar
                     this.$Header.setStyle('overflow', 'hidden');
                 }
             }
@@ -132,9 +131,9 @@ define('template-strata/Parallax', [
         /**
          * on scroll event
          */
-        $onScroll : function()
+        $onScroll: function ()
         {
-            if(window.getSize().x < 960) {
+            if (window.getSize().x < 960) {
                 return;
             }
 
@@ -147,8 +146,7 @@ define('template-strata/Parallax', [
 
             this.$pos = winPos;
 
-            if (this.$wrapperSize.y > this.$winSize)
-            {
+            if (this.$wrapperSize.y > this.$winSize) {
                 var scrollTo = (
                     ((this.$wrapperSize.y - this.$winSize) * diff) /
                     (this.$MainSize - this.$winSize) * (-1)

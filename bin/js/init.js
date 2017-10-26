@@ -1,31 +1,31 @@
-
-window.addEvent('domready', function()
+window.addEvent('domready', function ()
 {
     "use strict";
 
     require.config({
-        paths   : {
-            'template-strata' : URL_TEMPLATE_DIR +'bin/js'
+        paths: {
+            'template-strata': URL_TEMPLATE_DIR + 'bin/js'
         }
     });
 
     // load QUI
-    require(['qui/QUI'], function(QUI)
+    require(['qui/QUI'], function (QUI)
     {
-        QUI.addEvent("onError", function(msg, url, linenumber)
+        QUI.addEvent("onError", function (msg, url, linenumber)
         {
-            console.error( msg );
-            console.error( url );
-            console.error( 'LineNo: '+ linenumber );
+            console.error(msg);
+            console.error(url);
+            console.error('LineNo: ' + linenumber);
         });
     });
 });
 
-window.addEvent('load', function()
+window.addEvent('load', function ()
 {
     "use strict";
 
-    require(['template-strata/Parallax'], function(Parallax) {
+    require(['template-strata/Parallax'], function (Parallax)
+    {
         new Parallax().load();
     });
 });
